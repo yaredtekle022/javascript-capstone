@@ -1,29 +1,56 @@
-/*eslint-disable*/
-const path = require('path');
+/* eslint-disable import/no-extraneous-dependencies */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+  },
   devServer: {
     static: './dist',
   },
   output: {
-    filename: 'main.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    assetModuleFilename: 'assets/img/[name][ext]',
   },
+
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(s[ac]|c)ss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.js$/i,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },
+
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      title: 'Webpack Setup',
+      template: path.resolve(__dirname, 'src', 'index.html'),
     }),
+    new MiniCssExtractPlugin(),
   ],
+  devtool: 'inline-source-map',
+
+  optimization: {
+    runtimeChunk: 'single',
+  },
 };
