@@ -1,4 +1,3 @@
-// createNew like
 const createNewLike = async (id) => {
   const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/Y1Ocl2k5LoJdVEhHia5O/likes';
   const res = await fetch(url, {
@@ -19,6 +18,9 @@ const createNewLike = async (id) => {
   if (likeData) {
     return likeData.likes;
   }
+
+  // Add a return statement here
+  return undefined;
 };
 
 export default createNewLike;
