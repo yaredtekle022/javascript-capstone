@@ -151,6 +151,9 @@ body {
 
 @media screen and (min-width: 768px) {
   #reservationPopup {
+    --nav-line-height: 3px;
+    --nav-line-color: rgb(88, 88, 88);
+  
     position: fixed;
     top: 0;
     width: 100%;
