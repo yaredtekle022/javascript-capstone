@@ -55,7 +55,6 @@ class Reservations {
         <p>${area}</p>
       </div>
       <div class='rpdd-item'>
-        <a href='${recipie}' target="_blank">Recipie</a>
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </div>
     </div>
