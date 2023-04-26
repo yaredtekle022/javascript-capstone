@@ -39,7 +39,6 @@ class Reservations {
     const name = res.strMeal;
     const category = res.strCategory;
     const area = res.strArea;
-    const recipie = res.strSource;
     const popup = document.getElementById('reservation__data-content');
     this.removePopup();
     let html = `

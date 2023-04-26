@@ -50,7 +50,6 @@ class AddShowReservations {
       const response = await fetch(`${this.link}?item_id=${id}`, { method: 'get' });
 
       const data = await response.json();
-      console.log(data);
       counter.textContent = `(${data.length})`;
       return data;
     } catch (e) {
