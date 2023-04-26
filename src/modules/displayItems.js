@@ -1,4 +1,7 @@
 import createNewLike from './createNewLike.js';
+import Reservations from './Reservations.js';
+
+const reservationBtn1 = new Reservations();
 
 const render = (data, container) => {
   if (data.meals.length > 0) {
@@ -65,8 +68,10 @@ const render = (data, container) => {
       const reservationBtn = document.createElement('button');
       reservationBtn.className = 'btn-action btn-reservation';
       reservationBtn.innerText = 'Reservations';
+      reservationBtn.setAttribute('data-name', `${meal.idMeal}`);
 
       showActions.append(commentBtn, reservationBtn); // append child action buttons in showActions
+      reservationBtn1.init();
 
       item.append(showImg, showInfo, showActions); // append clild all the elements in item.
 
@@ -80,7 +85,6 @@ const render = (data, container) => {
 const fetchMealsImage = async (url, container) => {
   const res = await fetch(url);
   const result = await res.json();
-
   render(result, container);
 };
 
