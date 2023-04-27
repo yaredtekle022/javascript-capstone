@@ -123,7 +123,6 @@ class AddShowReservations {
     if (formErr !== null) {
       formErr.remove();
     }
-console.log(id)
     this.sendData({
       id, name, start, end,
     });
