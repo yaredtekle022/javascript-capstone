@@ -7,20 +7,20 @@ const render = (data, container) => {
     data.meals.forEach((meal) => {
       const item = document.createElement('li');
       item.id = meal.idMeal;
-      item.className = 'show-item';
+      item.className = 'show-items';
 
-      // creating show Img element
+      // creating element to show Img
       const showImg = document.createElement('div');
       showImg.className = 'show-item-img';
       showImg.innerHTML = `<img src='${meal.strMealThumb}'>`;
 
-      // creating show info
+      // creating element to show information
       const showInfo = document.createElement('div');
       showInfo.className = 'show-info';
 
-      // creating tile for show info
+      // creating element to show title info
       const title = document.createElement('h3');
-      title.className = 'show-title';
+      title.className = 'show-mealTitle';
       title.innerText = meal.strMeal;
 
       // like action
@@ -73,7 +73,7 @@ const render = (data, container) => {
       container.appendChild(item);
     });
   } else {
-    container.innerHTML = '<p class="no-data">No Data Founded</p>';
+    container.innerHTML = '<p class="noData">Data Not Founded</p>';
   }
 };
 
