@@ -20,27 +20,24 @@ body {
   align-items: center;
 }
 
-.navbar {
+.navbar-contianer {
   display: flex;
   width: 100%;
-  max-width: 1000px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
-.mobile-nav-group {
-  display: none;
+.navbar-menu {
+  display: flex;
   list-style: none;
-  flex-direction: column;
-  gap: 30px;
+  gap: 10px;
 }
 
-.desktop-nav-group {
-  display: none;
-}
-
-.nav-menu {
-  display: block;
+.brand-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff7b00;
+  text-decoration: none;
 }
 
 .nav-link {
@@ -64,7 +61,6 @@ body {
 .show-group {
   display: flex;
   list-style: none;
-  flex-direction: column;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -72,16 +68,14 @@ body {
   width: 100%;
   max-width: 1000px;
   gap: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.show-item {
-  padding: 10px;
+.show-items {
+  padding: 15px;
   border: 1px solid #736e6e;
-}
-
-.show-item-img {
-  display: block;
-  max-width: 100%;
+  width: 32%;
 }
 
 .show-item-img img {
@@ -97,8 +91,9 @@ body {
 .btn-like {
   background: transparent;
   border: none;
-  color: #fff;
-  margin-left: 10px;
+  color: red;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .show-actions {
@@ -114,6 +109,20 @@ body {
   border: none;
 }
 
+.show-mealTitle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.noData {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
 .footer {
   padding: 3%;
   height: 70px;
@@ -121,30 +130,4 @@ body {
   justify-content: center;
   border: 1px solid #736e6e;
   align-items: center;
-}
-
-@media screen and (min-width: 768px) {
-  .mobile-nav-group {
-    display: none;
-  }
-
-  .desktop-nav-group {
-    display: flex;
-    list-style: none;
-    gap: 10px;
-  }
-
-  .nav-menu {
-    display: none;
-  }
-
-  /* Main content css start from here */
-  .show-group {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .show-item {
-    width: 32%;
-  }
 }
