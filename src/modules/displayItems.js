@@ -1,3 +1,5 @@
+import createNewLike from './createNewLike.js';
+
 const render = (data, container) => {
   if (data.meals.length > 0) {
     container.innerHTML = '';
@@ -30,9 +32,16 @@ const render = (data, container) => {
       btnLike.className = 'btn-like';
       btnLike.innerHTML = "<img src='./assets/img/icons8-favorite-30.png' alt='favorite'>";
 
-      // // like count
+      // like count
       const likeCount = document.createElement('span');
-      likeCount.innerText = '5 likes';
+      likeCount.innerText = '';
+
+      // Fetch the number of likes for the current item and update the likeCount element
+      const fetchLikes = async () => {
+        const updatedLikes = await createNewLike(meal.idMeal);
+        likeCount.innerText = updatedLikes > 1 ? `${updatedLikes} likes` : `${updatedLikes} like`;
+      };
+      fetchLikes();
 
       showLikeAction.append(btnLike, likeCount); // append like actions child element.
 
@@ -41,6 +50,12 @@ const render = (data, container) => {
       // show action
       const showActions = document.createElement('div');
       showActions.className = 'show-actions';
+
+      // btn like event to create new like
+      btnLike.addEventListener('click', async () => {
+        const updatedLikes = await createNewLike(meal.idMeal);
+        likeCount.innerText = updatedLikes > 1 ? `${updatedLikes} likes` : `${updatedLikes} like`;
+      });
 
       // creating child btn
       const commentBtn = document.createElement('button');
