@@ -1,4 +1,6 @@
 // import static files
+import './modules/comments.js';
+import "./modules/AddCommentAPI.js";
 import './style.css';
 import './assets/img/icons8-favorite-30.png';
 import './assets/img/icons8-menu-rounded-24.png';
