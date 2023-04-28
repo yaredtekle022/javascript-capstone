@@ -79,9 +79,9 @@ class Reservations {
     <div id='reservationPopup'>
       <div id='reservation-p__container'>
         <div id='reservation__container'>
-            <div id='reservation__closeBtn'>
-              <div id='r__cBtn-lines'></div>
-            </div>
+            <p id='reservation__closeBtn'>
+            X
+            </p>
             <div id='reservation__data-content'></div>
           </div>
       </div>
