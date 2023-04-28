@@ -68,6 +68,10 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+ # Project Video Documentation
+ Click <a href="https://drive.google.com/file/d/1B7nVFG4t_bwDwSVqmHtf0MkK1DsUz5rz/view?usp=sharing"> here </a> to watch video
+
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
