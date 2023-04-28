@@ -65,6 +65,7 @@ const render = (data, container) => {
       const commentBtn = document.createElement('button');
       commentBtn.className = 'btn-action btn-comment';
       commentBtn.innerText = 'Comments';
+      commentBtn.setAttribute('data-name', `${meal.idMeal}`);
 
       const reservationBtn = document.createElement('button');
       reservationBtn.className = 'btn-action btn-reservation';
