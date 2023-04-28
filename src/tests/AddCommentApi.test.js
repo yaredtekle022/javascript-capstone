@@ -1,44 +1,22 @@
-/**
- * @jest-environment jsdom
- */
-
 import { counter } from "../modules/AddCommentAPI.js";
-/**
- * @jest-environment jsdom
- */
 
+beforeEach(() => {
+  fetch.resetMocks();
+});
 
-describe('add remove functionality', () => {
-  document.body.innerHTML = `
- 
-     <span class='comment-pop'>test</span>
-       `;
+describe("counter function", () => {
+  it("should return the number of comments for a specific item_id", async () => {
+    const itemId = "123";
+    const mockData = [      { id: 1, item_id: "123", username: "user1", comment: "comment1" },      { id: 2, item_id: "123", username: "user2", comment: "comment2" },    ];
 
-  beforeEach(() => {
-    global.fetch = jest.fn(() => Promise.resolve({
-      json: () => Promise.resolve([
-        {
-          comment: 'This is nice!',
-          username: 'John',
-        },
-        {
-          comment: 'This is  God!',
-          username: 'Miki',
-        },
-        {
-          comment: 'This is nice!',
-          username: 'Dani',
-        },
-      ]),
-    }));
-    counter.container = document.getElementById('');
-    counter.counternum = 'test';
-  });
+    fetch.mockResponseOnce(JSON.stringify(mockData));
 
-  describe('Check counter function', () => {
-    it('Count fetch response', async () => {
-      const count = await counter('test');
-      expect(count).toHaveLength(3);
-    });
+    const count = await counter(itemId);
+
+    expect(fetch.mock.calls.length).toEqual(1);
+    expect(fetch.mock.calls[0][0]).toEqual(
+      "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/TePAWbpwiBHr7xSY6An3/comments?item_id=123"
+    );
+    expect(count).toEqual(mockData.length);
   });
 });
