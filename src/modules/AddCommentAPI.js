@@ -11,8 +11,6 @@ export const sendData = async (id, name, message) => {
     }),
   });
   return request;
-  // const response = await request.text()
-  // console.log(response)
 };
 sendData();
 
