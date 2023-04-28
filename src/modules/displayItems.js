@@ -1,5 +1,6 @@
 import createNewLike from './createNewLike.js';
 import Reservations from './Reservations.js';
+import itemCounter from './itemCounter.js';
 
 const reservationBtn1 = new Reservations();
 
@@ -78,6 +79,9 @@ const render = (data, container) => {
 
       container.appendChild(item);
     });
+    const itemsList = document.querySelector('.show-group');
+    const itemCountElement = document.getElementById('item-count');
+    itemCounter(itemCountElement, itemsList);
   } else {
     container.innerHTML = '<p class="no-data">No Data Founded</p>';
   }
