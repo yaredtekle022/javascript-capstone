@@ -1,14 +1,14 @@
-import {sendData, getData, counter} from "./AddCommentAPI";
+import { sendData, getData, counter } from './AddCommentAPI.js';
 
-const getCommentData = async(idMeals) => {
+const getCommentData = async (idMeals) => {
   const request = await fetch(`https://themealdb.com/api/json/v1/1/lookup.php?i=${idMeals}`);
   const response = await request.json();
-  return response
-}
+  return response;
+};
 
 async function openPopup(data) {
   const container = document.querySelector('.comments');
-  let popup = `<div class="outside">
+  const popup = `<div class="outside">
     <p class="closeBtn">X</p>
     <img src=${data.strMealThumb} class="API-img">
     <p class="image-title">${data.strMeal}</p>
@@ -47,7 +47,7 @@ async function openPopup(data) {
     const comments = await getData(data.idMeal);
     const commentList = document.querySelector('.comment-list');
     commentList.innerHTML = ''; // clear existing comments
-    for (let i = 0; i < comments.length; i++) {
+    for (let i = 0; i < comments.length; i += 1) {
       const comment = comments[i];
       const li = document.createElement('li');
       li.innerText = `${comment.username}: ${comment.comment}`;
@@ -67,7 +67,7 @@ async function openPopup(data) {
   // Display previous comments
   const comments = await getData(data.idMeal);
   const commentList = document.querySelector('.comment-list');
-  for (let i = 0; i < comments.length; i++) {
+  for (let i = 0; i < comments.length; i += 1) {
     const comment = comments[i];
     const li = document.createElement('li');
     li.innerText = `${comment.username}: ${comment.comment} 28-04-2023`;
@@ -75,25 +75,24 @@ async function openPopup(data) {
   }
 }
 
-document.addEventListener('click', async (e) =>  {
+document.addEventListener('click', async (e) => {
   const container = document.querySelector('.comments');
   container.style.display = 'block';
-  if(e.target.classList.contains('btn-comment')) {
+  if (e.target.classList.contains('btn-comment')) {
     const getID = e.target.getAttribute('data-name');
     const data = await getCommentData(getID);
-    console.log(data.meals[0].strMeal);
     return openPopup(data.meals[0]);
   }
 });
 
 function closePopup() {
   const container = document.querySelector('.comments');
-  container.style.display = 'none'
+  container.style.display = 'none';
   container.innerHTML = '';
 }
 
-document.addEventListener('click', (e) =>  {
-  if(e.target.classList.contains('closeBtn')) {
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('closeBtn')) {
     return closePopup();
   }
 });

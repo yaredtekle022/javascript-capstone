@@ -2,8 +2,8 @@ const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/
 
 export const sendData = async (id, name, message) => {
   const request = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       item_id: `${id}`,
       username: `${name}`,
@@ -18,8 +18,8 @@ sendData();
 
 export const getData = async (id) => {
   const request = await fetch(`${url}?item_id=${id}`);
-  const response = request.json()
-  return response
+  const response = request.json();
+  return response;
 };
 
 export const counter = async (id) => {
