@@ -288,7 +288,7 @@ body {
 
 @media screen and (min-width: 768px) {
   #reservation-p__container {
-    max-width: 50vw;
+    max-width: 25vw;
   }
 
   #resPopup--dish-description {
