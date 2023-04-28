@@ -1,12 +1,13 @@
+import { doet } from './comment.js';
 import createNewLike from './createNewLike.js';
 import Reservations from './Reservations.js';
 
+// import commentCounter from './commentCounter.js';
 const reservationBtn1 = new Reservations();
-
+const recipeCards = document.querySelector('.show-group');
 const render = (data, container) => {
   if (data.meals.length > 0) {
     container.innerHTML = '';
-
     data.meals.forEach((meal) => {
       const item = document.createElement('li');
       item.id = meal.idMeal;
@@ -64,6 +65,10 @@ const render = (data, container) => {
       const commentBtn = document.createElement('button');
       commentBtn.className = 'btn-action btn-comment';
       commentBtn.innerText = 'Comments';
+      commentBtn.id = meal.idMeal;
+      
+      // commentBtn.addEventListener('click', async (e) => {
+      //   await doet(meal.idMeal)});
 
       const reservationBtn = document.createElement('button');
       reservationBtn.className = 'btn-action btn-reservation';
@@ -82,10 +87,20 @@ const render = (data, container) => {
   }
 };
 
+
 const fetchMealsImage = async (url, container) => {
   const res = await fetch(url);
   const result = await res.json();
   render(result, container);
 };
+
+recipeCards.addEventListener('click', async (e) => {
+  if (e.target.classList.contains('btn-comment')) {
+    const b = e.target.id;
+    await doet(b);
+    //commentCounter(b);
+  }
+});
+
 
 export default fetchMealsImage;
