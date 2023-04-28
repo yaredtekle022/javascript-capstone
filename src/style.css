@@ -109,6 +109,13 @@ body {
   border: none;
 }
 
+.btn-action:hover {
+  background: #03660c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
 .show-mealTitle {
   font-size: 0.9rem;
   font-weight: bold;
@@ -130,6 +137,17 @@ body {
   justify-content: center;
   border: 1px solid #736e6e;
   align-items: center;
+}
+
+#item-count {
+  color: #ff7b00;
+  font-weight: bold;
+}
+
+h3 {
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -321,10 +339,10 @@ body {
   color: black;
 }
 
-.reservations-counter {
+.reservations-list-header {
   color: black;
 }
 
-.reservations-list-header {
+.reservations-counter {
   color: black;
 }
