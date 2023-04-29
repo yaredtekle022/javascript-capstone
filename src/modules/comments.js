@@ -73,7 +73,7 @@ const openPopup = async (data) => {
     li.innerText = `${comment.username}: ${comment.comment} 28-04-2023`;
     commentList.appendChild(li);
   }
-}
+};
 
 document.addEventListener('click', async (e) => {
   const container = document.querySelector('.comments');
@@ -89,7 +89,7 @@ const closePopup = () => {
   const container = document.querySelector('.comments');
   container.style.display = 'none';
   container.innerHTML = '';
-}
+};
 
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('closeBtn')) {
