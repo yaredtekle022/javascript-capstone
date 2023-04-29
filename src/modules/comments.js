@@ -6,7 +6,7 @@ const getCommentData = async (idMeals) => {
   return response;
 };
 
-async function openPopup(data) {
+const openPopup = async (data) => {
   const container = document.querySelector('.comments');
   const popup = `<div class="outside">
     <p class="closeBtn">X</p>
@@ -85,11 +85,12 @@ document.addEventListener('click', async (e) => {
   }
 });
 
-function closePopup() {
+const closePopup = () => {
   const container = document.querySelector('.comments');
   container.style.display = 'none';
   container.innerHTML = '';
-}
+};
+
 
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('closeBtn')) {
