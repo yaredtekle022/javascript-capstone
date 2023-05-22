@@ -64,7 +64,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link](https://yaredtekle022.github.io/javascript-capstone/dist/)
+- [Live Demo Link](https://react-bookstore-1576.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
